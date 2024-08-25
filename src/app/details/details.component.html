@@ -1,0 +1,93 @@
+@if(item){
+  <div class="details-container">
+    <div class="header">
+      <h1>{{ item.name }}</h1>
+    </div>
+    <div class="details-content">
+      <div class="info">
+        <img class="image" [src]="item.imageUrl" alt="{{ item.name }}" />
+        
+        <div class="description">
+          <strong>Description:</strong> {{ item.description }}
+        </div>
+        <div class="email">
+          <strong>Email:</strong> {{ item.email }}
+        </div>
+        <div class="phone">
+          <strong>Phone:</strong> {{ item.phone }}
+        </div>
+        <div class="address">
+          <strong>Address:</strong> {{ item.address }}
+        </div>
+        <div class="reservation">
+          <strong>Reservation Required:</strong> {{ item.reservation ? 'Yes' : 'No' }}
+        </div>
+      </div>
+
+      @if(item.reservation){
+      <div class="reservation-form">
+        <h2>Book Your Reservation</h2>
+        <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" formControlName="phone">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email">
+          </div>
+          @if(item.type === 'Restaurant'){
+              <div class="form-group">
+                  <label for="sizeOfParty">Size of Party</label>
+                  <input id="sizeOfParty" type="number" formControlName="sizeOfParty" min="1">
+              </div>
+              <div class="form-group">
+                  <label for="date">Date</label>
+                  <input id="date" type="date" formControlName="date">
+              </div>
+              <div class="form-group">
+                  <label for="time">Time</label>
+                  <input id="time" type="time" formControlName="time">
+              </div>
+          }
+          @if(item.category === 'Lodging'){
+              <div class="form-group">
+                  <label for="checkInDate">Check-In Date</label>
+                  <input id="checkInDate" type="date" formControlName="checkInDate">
+              </div>
+              <div class="form-group">
+                  <label for="checkOutDate">Check-Out Date</label>
+                  <input id="checkOutDate" type="date" formControlName="checkOutDate">
+              </div>
+          }
+          @if(item.type === 'Rental Car'){
+              <div class="form-group">
+                  <label for="carType">Car Type</label>
+                  <select id="carType" formControlName="carType">
+                      <option value="SUV">SUV</option>
+                      <option value="Truck">Truck</option>
+                      <option value="Sedan">Sedan</option>
+                      <option value="Coupe">Coupe</option>
+                      <option value="Van">Van</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="pickUpDate">Pick-Up Date</label>
+                  <input id="pickUpDate" type="date" formControlName="pickUpDate">
+              </div>
+              <div class="form-group">
+                  <label for="dropOffDate">Drop-Off Date</label>
+                  <input id="dropOffDate" type="date" formControlName="dropOffDate">
+              </div>
+          }           
+          <button type="submit" class="book-button">Book Now</button>
+        </form>
+      </div>
+      }
+    </div>
+  </div>
+}

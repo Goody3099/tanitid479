@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>{{currentCategory}}</h1>
+
+    <ul class="categoryList">
+      <li class="categoryItem" (click)="updateFilteredItems(currentCategory)">All {{currentCategory}}</li>
+      @for(typeByCategory of typesByCategory; track typeByCategory){
+        <li class="categoryItem" (click)="removeByTypeFromFilteredList(typeByCategory, currentCategory)">{{typeByCategory}}</li>
+      }
+    </ul>
+
+    <ul class="list">
+      @for (item of filteredItems; track item.name){
+        <li class="listItem">
+          <img class="image" src="{{item.imageUrl}}" alt="{{item.name}}"/>
+          <div class="content">
+            <div class="name">{{item.name}}</div>
+            <div class="description">{{item.description}}</div>
+          </div>
+          <div class="details">
+            <div class="email">Email: {{item.email}}</div>
+            <div class="phone">Phone: {{item.phone}}</div>
+            <div class="address">Address: {{item.address}}</div>
+            <div class="reservation">Reservation: {{item.reservation ? 'Yes' : 'No'}}</div>
+          </div>
+          <div class="bookNowButton" (click)="getDetails(item)">Details</div>
+        </li>
+      }
+    </ul>
+  </div>
+  

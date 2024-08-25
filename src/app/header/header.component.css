@@ -1,0 +1,108 @@
+/* Base styles for larger screens */
+header {
+    background-color: #00BFFF;
+    color: #000000;
+    padding: 20px 40px;
+}
+
+.logo a {
+    color: #000000;
+    font-size: 28px;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.logo a:hover {
+    color: #FFD700;
+    text-decoration: underline;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    color: #FFD700;
+    text-decoration: underline;
+}
+
+h1, h2, h3, p {
+    color: #000000;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .logo a {
+        font-size: 24px;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+    .nav-links li {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo a {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    .logo a {
+        font-size: 18px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
+    }
+}
