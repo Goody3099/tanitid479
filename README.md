@@ -1,8 +1,5 @@
 # TanitiD479
 
-build: ng build --configuration=production --base-href="/tanitid479/"
-deploy: ngh --dir=dist/taniti-d479/browser/home
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
 
 ## Development server
